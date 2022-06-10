@@ -1,12 +1,16 @@
-<script setup>
+<script >
 import NavBar from '@/components/NavBar.vue'
 import FooterNav from '@/components/FooterNav.vue'
+
+export default {
+  components: { NavBar, FooterNav }
+}
 
 </script>
 
 <template>
   <body class="flex flex-col min-h-screen">
-    <header class="self-center">
+    <header v-if="!loggedIn" class="self-center">
       <img
         alt="Personal Logo"
         src="@/assets/KnyHeads.png"
@@ -23,7 +27,7 @@ import FooterNav from '@/components/FooterNav.vue'
       <router-view />
     </main>
     <footer class="mt-auto">
-      <div class="text-2xl text-center" id="footer-nav">
+      <div class="text-2xl text-center">
         <FooterNav />
       </div>
     </footer>
